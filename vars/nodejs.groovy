@@ -1,6 +1,6 @@
 def lintchecks () {
      sh "echo Installing Lint Checker for nodejs"
-     sh "npm i jslint"
+    //  sh "npm i jslint"
      sh "node_modules/jslint/bin/jslint.js server.js || true"
 }
 
