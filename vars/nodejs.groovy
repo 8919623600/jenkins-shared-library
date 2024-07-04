@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Lint Checks') {
             steps {
-                scripts {
+                script {
                      lintchecks()
                 }
             }
