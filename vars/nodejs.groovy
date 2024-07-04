@@ -1,0 +1,26 @@
+def lintchecks () {
+     sh "echo Installing Lint Checker for nodejs"
+     sh "npm i jslint"
+     sh "node_modules/jslint/bin/jslint.js server.js || true"
+}
+
+def call () {
+pipeline { 
+    agent any
+    stages {
+        stage('Lint Checks') {
+            steps {
+                scripts {
+                     lintchecks()
+                }
+            }
+        }
+        stage('Static Code Analysis') {
+            steps {
+                sh "echo Static Checks ...."
+            }
+        }
+    }
+} 
+
+}
