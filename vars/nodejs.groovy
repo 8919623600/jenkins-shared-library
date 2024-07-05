@@ -1,6 +1,7 @@
 def lintchecks () {
      sh "echo Installing Lint Checker for nodejs"
     //  sh "npm i jslint"                          // this command will do the lint check for nodejs code
+     sh "echo This is lint check for $COMPONENT"
      sh "node_modules/jslint/bin/jslint.js server.js || true"
 }
 
@@ -11,7 +12,7 @@ pipeline {
         stage('Lint Checks') {
             steps {
                 script {
-                     lintchecks()
+                     lintchecks()        // this will call the lintcheck function. Though it is defined in same file that is why filename is not required while calling the function
                 }
             }
         }
