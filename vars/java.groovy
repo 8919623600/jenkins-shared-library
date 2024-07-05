@@ -20,6 +20,7 @@ def call() {
         stage('Static Code Analysis') {
             steps {
                 sh "echo Static Checks ...."
+                sh "echo static code analysis is done"
             }
         }
     }
