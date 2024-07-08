@@ -5,6 +5,10 @@ def lintchecks () {
      sh "node_modules/jslint/bin/jslint.js server.js || true"
 }
 
+def sonarchecks () {
+    sh "echo sonarchecks starting for $COMPONENT"
+}
+
 def call () {
 pipeline { 
     agent any
