@@ -25,7 +25,7 @@ pipeline {
         stage ('Building package') {
 
             tools {
-               docker 'latest' 
+               docker '26.1.4' 
              }
             steps {
                 sh "docker build -t cart:1.0 ."
