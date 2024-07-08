@@ -23,13 +23,12 @@ pipeline {
         }
 
         stage ('Building package') {
-
-            tools {
-               docker '26.1.4' 
-             }
             steps {
-                sh "docker build -t cart:1.0 ."
-            }
+                scripts {
+                    script {
+             docker.run image: 'cart:latest', name: 'cart' 
+                }
+             }
         }
     }
 } 
