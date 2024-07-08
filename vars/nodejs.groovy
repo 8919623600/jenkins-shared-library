@@ -24,11 +24,9 @@ pipeline {
 
         stage ('Building package') {
             steps {
-                scripts {
                     script {
              docker.run image: 'cart:latest', name: 'cart' 
                 }
-             }
         }
     }
 } 
