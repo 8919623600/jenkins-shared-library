@@ -24,7 +24,7 @@ pipeline {
 
         stage ('Building package') {
             steps {
-                docker build -t cart:1.0 .
+                sh "docker build -t cart:1.0 ."
             }
         }
     }
