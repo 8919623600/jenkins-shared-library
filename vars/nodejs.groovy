@@ -21,6 +21,12 @@ pipeline {
                 sh "echo Static Checks ...."
             }
         }
+
+        stage ('Building package') {
+            steps {
+                docker build -t cart:1.0 .
+            }
+        }
     }
 } 
 
