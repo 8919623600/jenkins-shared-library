@@ -28,7 +28,9 @@ def call() {
                 }
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
-    stage('Login to ECR') {
+    stage('Login to ECR')
+    label 'ws'
+     {
         sh "echo Downloading the pem key file for DB Connectivity"
         sh "wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"
         // sh "echo Authenticating To ECR"
