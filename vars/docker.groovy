@@ -1,5 +1,6 @@
 def call() {
     node {
+        label 'ws'
         // env.AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID_ROBOSHOP'
         // env.AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY_ROBOSHOP'
         // env.REGION = 'us-east-1'
@@ -8,7 +9,7 @@ def call() {
         common.testcases()
         if (env.TAG_NAME != null) {
             stage("generating and publishing artifact")
-            label 'ws'
+            // label 'ws'
             if (env.APPTYPE == "nodejs") {
                 sh "echo generating node artifacts"
                 // sh "npm install"
@@ -29,7 +30,7 @@ def call() {
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
     stage('Login to ECR')
-    label 'ws'
+    
      {
         sh "echo Downloading the pem key file for DB Connectivity"
         sh "wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"
