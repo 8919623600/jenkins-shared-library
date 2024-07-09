@@ -1,11 +1,11 @@
 def call() {
     node {
-        label 'ws'
         git branch: "main" , url: "https://github.com/8919623600/${COMPONENT}.git"
         common.lintchecks()
         common.testcases()
         if (env.TAG_NAME != null) {
             stage("generating and publishing artifact")
+            label 'ws'
             if (env.APPTYPE == "nodejs") {
                 sh "echo generating node artifacts"
                 // sh "npm install"
@@ -25,6 +25,6 @@ def call() {
                 }
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
-        sh "sudo docker build -t 355449129696.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
+        sh "docker build -t 355449129696.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
     }
 }
