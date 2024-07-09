@@ -1,5 +1,8 @@
 def call() {
     node {
+        env.AWS_ACCESS_KEY_ID = 'Access_key'
+        env.AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY'
+        env.REGION = 'us-east-1'
         git branch: "main" , url: "https://github.com/8919623600/${COMPONENT}.git"
         common.lintchecks()
         common.testcases()
@@ -26,7 +29,6 @@ def call() {
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
         stage('Login to ECR') {
-            withAWS(credentials: 'AWS_CREDS', region: 'us-east-1') {
         sh "echo Downloading the pen key file for DB Connectivity"
         sh "env"
         sh "wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"
@@ -35,7 +37,6 @@ def call() {
         sh "docker build -t 851725330688.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
         sh "docker push 851725330688.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME}"
         
-            }
         }
     }
   
