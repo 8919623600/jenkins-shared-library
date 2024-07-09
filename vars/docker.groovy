@@ -7,7 +7,7 @@ def call() {
             stage("generating and publishing artifact")
             if (env.APPTYPE == "nodejs") {
                 sh "echo generating node artifacts"
-                sh "npm install"
+                // sh "npm install"
             }
             else if(env.APPTYPE == "python") {
                     sh "echo Generating Artifacts"
