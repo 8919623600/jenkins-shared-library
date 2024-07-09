@@ -26,7 +26,7 @@ def call() {
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
         stage('Login to ECR') {
-            withCredentials([usernameId: 'AWS_CREDS', passwordVariable: 'AWS_ACCESS_KEY_ID', fileCredentialId: 'AWS_CREDS', secretFileVariable: 'AWS_SECRET_ACCESS_KEY']) {
+            withAWS(credentials: 'AWS_CREDS', region: 'us-east-1') {
         sh "echo Downloading the pen key file for DB Connectivity"
         sh "env"
         sh "wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"
