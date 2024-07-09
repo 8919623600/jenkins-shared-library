@@ -29,7 +29,7 @@ def call() {
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
         stage('Login to ECR') {
-        withCredentials([usernameId: 'aws-credentials', passwordVariable: 'AWS_ACCESS_KEY_ID', fileCredentialId: 'aws-credentials', secretFileVariable: 'AWS_SECRET_ACCESS_KEY']) {
+        // withCredentials([usernameId: 'aws-credentials', passwordVariable: 'AWS_ACCESS_KEY_ID', fileCredentialId: 'aws-credentials', secretFileVariable: 'AWS_SECRET_ACCESS_KEY']) {
         sh "echo Downloading the pen key file for DB Connectivity"
         sh "env"
         sh "wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"
@@ -38,7 +38,7 @@ def call() {
         sh "docker build -t 851725330688.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
         sh "docker push 851725330688.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME}"
          }
-        }
+        // }
     }
   
 }
