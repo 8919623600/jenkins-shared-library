@@ -34,7 +34,7 @@ def call() {
         sh "echo Downloading the pem key file for DB Connectivity"
         sh "wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem"
         sh "echo Authenticating To ECR"
-        sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin"
+        sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 851725330688.dkr.ecr.us-east-1.amazonaws.com"
         sh "docker build -t 851725330688.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
         sh "docker push 851725330688.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME}"
       
