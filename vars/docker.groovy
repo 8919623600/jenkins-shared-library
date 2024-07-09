@@ -5,7 +5,7 @@ def call() {
         common.testcases()
         if (env.TAG_NAME != null) {
             stage("generating and publishing artifact")
-            if (env.APPTYPE="nodejs") {
+            if (env.APPTYPE == "nodejs") {
                 sh "echo generating node artifacts"
                 sh "npm install"
             }
