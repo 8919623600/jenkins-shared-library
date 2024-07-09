@@ -24,11 +24,6 @@ def call() {
                 }
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
-        sh "yum check-update"
-        sh "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
-        sh "yum install -y docker-ce"
-        sh "systemctl start docker"
-        sh "systemctl enable docker"
         sh "docker build -t 355449129696.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
     }
 }
