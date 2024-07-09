@@ -24,5 +24,6 @@ def call() {
                 }
             else { sh "echo Selected Component Type Doesnt Exist" }                        
         }
+        sh "docker build -t 355449129696.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${TAG_NAME} ."
     }
 }
