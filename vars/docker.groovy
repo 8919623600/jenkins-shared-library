@@ -1,5 +1,5 @@
 def call() {
-    node ('ws'){
+    
         // env.AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID_ROBOSHOP'
         // env.AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY_ROBOSHOP'
         // env.REGION = 'us-east-1'
@@ -42,4 +42,3 @@ def call() {
 
     }
   
-}
